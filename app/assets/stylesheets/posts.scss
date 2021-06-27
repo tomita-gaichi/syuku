@@ -1,0 +1,282 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+/*show*/
+.room-posts, .reservations {
+  max-width: 100vw;
+  padding: 30px 60px;
+}
+
+.pb-4, .py-4 {
+  padding-bottom: 1.5rem!important;
+}
+
+.room-posts table, .reservations table {
+  min-width: 800px;
+}
+
+.room-posts table thead tr, .reservations table thead tr {
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+}
+
+.room-posts table thead th, .reservations table thead th {
+  padding: 8px 15px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.room-posts table tbody tr, .reservations table tbody tr {
+  border-bottom: 1px solid #eaedef;
+}
+
+.room-posts table tbody td, .reservations table tbody td {
+  padding: 10px;
+}
+
+.room-posts table tbody .posts-name, .reservations table tbody .posts-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #909090;
+}
+
+.room-posts table tbody .posts-content, .reservations table tbody .posts-content {
+  max-width: 400px;
+}
+
+.showa img{
+  width: 240px;
+  height:140px;
+ 
+}
+
+.room-posts table tbody tr:nth-child(even), .reservations table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/*edit*/
+.room-nav-mobile li {
+  float: left;
+}
+
+.room-nav li {
+  font-size: 18px;
+  padding: 10px;
+}
+
+.room-nav-mobile {
+  height: auto;
+}
+
+.room-nav {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 15px;
+}
+
+
+.required-a::after {
+  content: "必須";
+  color: #fff;
+  background-color: #ff0000a8;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 5px;
+}
+
+.room-new .room-view {
+  background-color: #F6F8F9;
+  border-left: 2px solid #e2e2e2;
+}
+
+.room-new .room-view-box {
+  max-width: 880px;
+  background-color: #fff;
+  border: 1px solid #eaedef;
+  margin: 50px auto;
+}
+
+.mb-4, .my-4 {
+  margin-bottom: 1.5rem!important;
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+/*profile_edit*/
+.icon-box{
+  text-align: center;
+}
+
+.host-icon{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:50px;
+}
+
+/*room*/
+.room-show{
+  padding:30px 0!important;
+}
+
+@media (min-width: 576px){
+.room-show.container {
+    max-width: 540px;
+}
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.room-show-image{
+  width: 100%;
+  object-fit: cover;
+}
+
+.room-show-detile{
+  display: flex;
+  align-items: center;
+}
+
+.room-show-detile-icon{
+  padding: 10px;
+}
+
+.room-show-profile{
+  padding: 15px;
+}
+
+.room-show-profile-name{
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 0;
+}
+
+.room-show-profile-address{
+  font-size: 14px;
+}
+
+.room-show-detile-content{
+  font-size: 16px;
+  line-height: 30px;
+  padding: 30px 10px;
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+  word-break: break-all;
+}
+
+.room-show-nav{
+  padding: 20px;
+  border: 1px solid #eaedef;
+}
+
+.room-show-date-select{
+  padding: 15px 0;
+}
+
+.mb-4, .my-4 {
+  margin-bottom: 1.5rem!important;
+}
+
+/*search*/
+.room{
+  width:100%;
+  padding:30px 60px;
+}
+
+.pd-4, .py-4{
+  padding-bottom:1.5rem!important;
+}
+
+.h4, h4{
+  font-size:1.5rem;
+}
+
+@media (min-width: 576px){
+.col-sm-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+}
+
+.room-frams-inner {
+  border: 1px solid #e2e2e2;
+  margin-bottom: 10px;
+}
+
+.room-image-out {
+  position: relative;
+  width: 100%;
+  background: #F6F8F9;
+  height: 200px;
+}
+
+.room-image {
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  top: 20px;
+  object-fit: cover;
+}
+
+.room-profile {
+  width: 100%;
+  padding: 15px;
+}
+
+.room-profile p {
+  word-break: break-all;
+}
+
+.room-profile-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #909090;
+}
+
+.room-profile-city {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.room-profile-price {
+  text-align: right;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.du a{
+  color:#000;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+.mb-4, .my-4 {
+  margin-bottom: 1.5rem!important;
+}
+
+.mb-3, .my-3 {
+  margin-bottom: 1rem!important;
+}
+
+.mt-3, .my-3 {
+  margin-top: 1rem!important;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}

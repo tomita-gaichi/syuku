@@ -8,11 +8,64 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body> 
-
-  
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left-nav">
+          <%=link_to '/users/index' do%>
+           <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png'%>
+          <%end%>
+          <%= form_with url: posts_search_path, local: true, method: :get do |form| %>
+            <div class="header-sharch d-lg-inline-block d">
+              <%= form.text_field :area, placeholder: 'エリア', class: 'form-control' %>
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="header-sharch d-lg-inline-block d">
+              <%= form.text_field :keyword, placeholder: 'キーワード', class: 'form-control' %>
+              <i class="fas fa-search"></i>
+            </div>
+            <%= form.submit "", class: 'd-none' %>
+          <% end %>
+        </div>
+        <% if current_user %>
+          <div class="header-right-nav">
+            <div class="nav-item d-sm-inline-block na"><%= current_user.name %></div>
+            <div class="nav-item">
+                <% if current_user.image.present? %>
+                  <label for="hu"><%= image_tag "user_images#{current_user.image.to_s}", class: 'mx-3 p-1 host-icon nav-tridder' %></label>
+                  <input type="checkbox" id="hu" class="d-none">
+                <% else %>
+                  <label for="hu"><%= image_tag "user_images/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpeg", class: 'mx-3 p-1 host-icon nav-tridder' %></label>
+                  <input type="checkbox" id="hu" class="d-none">
+                <% end %>
+              <ul class="header-nav-menu">
+                <li><%= link_to 'ルーム登録', '/posts/new' %></li>
+                <li><%= link_to '予約済みルーム一覧', '/reservations/reshow' %></li>
+                <li><%= link_to '登録済みルーム一覧', '/posts/show' %></li>
+                <li><%= link_to '設定', account_path %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+              </ul>
+            </div>
+          </div>
+        <% else %>
+          <div class="header-right-nav">
+            <div class="nav-item">
+             <%=link_to 'ログイン', new_user_session_path, class: 'btn btn-primary my-2 mx-3' %>
+             <%=link_to 'ユーザー登録', new_user_registration_path, class: 'btn btn-secondary' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </header>
+    <%= render 'layouts/flash' %>
     <%= yield %>
+    <footer class="footer">
+     <p>© 2020 POTEPAN.INC.</p>
+     
+    </footer>
+
   </body>
 </html>

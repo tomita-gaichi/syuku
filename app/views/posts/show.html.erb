@@ -1,0 +1,40 @@
+<div class="container-fiuld room-posts showa">
+  <h4 class="pb-4">登録済みルーム一覧</h4>
+  <table>
+    <thead>
+      <tr align="center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td>
+          <% if post.image.present? %>
+            <%= link_to image_tag("user_images#{post.image.to_s}"), "/reservations/#{post.id}/rooms" %>
+          <% end %>
+          </td>
+          <td class="posts-name">
+            <%= link_to post.name, "/reservations/#{post.id}/rooms" %>
+          </td>
+          <td class="posts-content">
+            <%= post.syoukai %>
+          </td>
+          <td class="price-icon">
+            ¥<%= post.price %>
+          </td>
+          <td>
+            <%= post.created_at.to_s(:datetime_jp) %>
+          </td>
+          <td>
+            <%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" }  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

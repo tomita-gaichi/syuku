@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  post: one
+  start_date: 2021-06-17
+  end_date: 2021-06-17
+  person: 1
+
+two:
+  user: two
+  post: two
+  start_date: 2021-06-17
+  end_date: 2021-06-17
+  person: 1

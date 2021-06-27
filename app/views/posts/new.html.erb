@@ -1,0 +1,57 @@
+<div class="container-fiuld room-new">
+  <div class="rows">
+    <div class="col-lg-2 room-nav room-nav-mobile d-lg-none">
+      <ul>
+        <li class="active">
+          <%= link_to '基本情報', '/posts/edit' %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-10 room-view">
+      <div class="room-view-box">
+        <%= form_for @post do |f| %>
+          <div class="update-content">
+            <div class="row">
+              <h5>ルーム情報登録</h5>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :name, "ルーム名", class: 'col-md-3 required-a' %>
+              <%= f.text_field :name, class: 'form-control md-4 col-md-9', placeholder: 'ルーム名を入力' %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :syoukai, "ルーム紹介", class: 'col-md-3 required-a' %>
+              <%= f.text_area :syoukai, class: 'form-control md-4 col-md-9', placeholder: 'ルーム説明を入力' %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :price, "料金", class: 'col-md-3 required-a' %>
+              <%= f.number_field :price, class: 'form-control md-4 col-md-9', placeholder: '一日あたりの料金を入力' %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :address, "住所", class: 'col-md-3 required-a' %>
+              <%= f.text_field :address, class: 'form-control md-4 col-md-9', placeholder: '住所を入力' %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :image, "ルーム画像", class: 'col-md-3 required-a' %>
+              <%= f.file_field :image, class: 'md-4 col-md-9' %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.submit "登録", class: 'form-control btn-primary my-4'%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

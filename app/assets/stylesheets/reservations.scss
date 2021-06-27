@@ -1,0 +1,60 @@
+// Place all the styles related to the reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+/*search*/
+.room-show, .reservations-new {
+  padding: 30px 0;
+}
+
+.offset-3 {
+  margin-left: auto;
+  margin-right:auto;
+}
+
+.col-6 {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.room-show-nav, .reservations-new-nav {
+  padding: 20px;
+  border: 1px solid #eaedef;
+}
+
+.room-show-check-content, .reservations-new-check-content {
+  border-bottom: 1px solid #eaedef;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.h5, h5 {
+  font-size: 1.25rem;
+}
+
+.room-show-date-select, .reservations-new-date-select {
+  padding: 15px 0;
+}
+
+.room-show-date-select label, .reservations-new-date-select label {
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.h6, h6 {
+  font-size: 1rem;
+}
+
+/*kari*/
+
+.col-md-9 a{
+  color:#000;
+}
+
+@media (min-width: 768px){
+.col-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+}

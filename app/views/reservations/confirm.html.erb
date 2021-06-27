@@ -1,0 +1,9 @@
+<%= form_for[@post,@reservation] do |f| %>
+  <%= f.hidden_field :id,@posts.id %>
+  <%= @reservation.post.price %>
+  <%= @reservation.start_date %>
+  <%= @reservation.end_date %>
+  <%= @reservation.person %>
+  <%= f.submit '戻る', name: 'back' %>
+  <%= f.submit '予約する' %>
+<% end %>

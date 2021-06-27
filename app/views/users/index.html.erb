@@ -1,0 +1,53 @@
+<div class="top">
+  <div class="top-main">
+    <div class="container">
+      <div class="row col-lg-6">
+        <div class="form-fream">
+          <div class="form-area">
+            <p class="form-area-title mb-4">Potepan Shareでまだ体験したことのない旅をしよう</p>
+            <%= form_with url: posts_search_path, local: true, method: :get do |form| %>
+              <%= form.label 'エリア' %>
+              <%= form.text_field :area, placeholder: '東京', class: 'form-control mb-4 ' %>
+              <%= form.submit "探す", class: 'form-control btn-primary mb-4' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="panel-area m-5">
+      <h1 class="section-title">おすすめエリア</h1>
+      <div class="row">
+        <div class="panel-item col-lg-3 col-6">
+          <span>東京</span>
+          <%= link_to "http://127.0.0.1:3000/posts/search?area=%E6%9D%B1%E4%BA%AC&commit=%E6%A4%9C%E7%B4%A2" do %>
+            <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg', class: 'panel-image' %>
+          <% end %>
+          <div class="shadow"></div>
+        </div>
+        <div class="panel-item col-lg-3 col-6">
+          <span>大阪</span>
+          <%= link_to "http://127.0.0.1:3000/posts/search?area=%E5%A4%A7%E9%98%AA&commit=%E6%A4%9C%E7%B4%A2" do %>
+            <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg', class: 'panel-image' %>
+          <% end %>
+          <div class="shadow"></div>
+        </div>
+        <div class="panel-item col-lg-3 col-6">
+          <span>京都</span>
+          <%= link_to "http://127.0.0.1:3000/posts/search?area=%E4%BA%AC%E9%83%BD&commit=%E6%A4%9C%E7%B4%A2" do %>
+            <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg', class: 'panel-image' %>
+          <% end %>
+          <div class="shadow"></div>
+        </div>
+        <div class="panel-item col-lg-3 col-6">
+          <span>札幌</span>
+          <%= link_to "http://127.0.0.1:3000/posts/search?area=%E6%9C%AD%E5%B9%8C&commit=%E6%A4%9C%E7%B4%A2" do %>
+            <%= image_tag 'https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg', class: 'panel-image' %>
+          <% end %>
+          <div class="shadow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

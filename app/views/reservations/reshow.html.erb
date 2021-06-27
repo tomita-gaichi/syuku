@@ -1,0 +1,47 @@
+
+
+<div class="container-fiuld room-posts showa">
+  <h4 class="pb-4">予約済みルーム一覧</h4>
+  <table>
+    <thead>
+      <tr align="center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>予約確定日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |re| %>
+        <tr>
+          <td>
+          <% if re.post.image.present? %>
+            <%= link_to image_tag("user_images#{re.post.image.to_s}"), "/reservations/#{re.post.id}/rooms" %>
+          <% end %>
+          </td>
+          <td class="posts-name">
+            <%= link_to re.post.name, "/reservations/#{re.post.id}/rooms" %>
+          </td>
+          <td class="posts-content">
+            <%= re.post.syoukai %>
+          </td>
+          <td class="price-icon">
+          ¥<%= ((re.end_date - re.start_date) * re.person * re.post.price).to_int %>
+          </td>
+          <td class="posts-content">
+            <%= re&.start_date&.strftime('%Y年%m月%d日') %>
+          </td>
+          <td>
+            <%= re&.end_date&.strftime('%Y年%m月%d日') %>
+          </td>
+          <td>
+            <%= re.created_at.to_s(:datetime_jp) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

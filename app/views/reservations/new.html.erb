@@ -1,0 +1,8 @@
+<%= form_for [@post,@reservation] do |f| %>
+  <%= @reservation.post.price %>
+  <%= @reservation.start_date %>
+  <%= @reservation.end_date %>
+  <%= @reservation.person %>
+  <%= link_to '戻る', :back %>
+  <%= f.submit '予約' %>
+<% end %>

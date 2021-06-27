@@ -1,0 +1,77 @@
+<% if @reservation.confirming.blank? %>
+<%= render "layouts/error_messages", obj: @reservation %>
+  <div class="container room-show">
+    <div class="row">
+      <div class="col-md-8">
+        <% if @post.image.present? %>
+          <%= image_tag "user_images#{@post.image.to_s}", class: 'room-show-image' %>
+        <% end %>
+        <div class='room-show-detile'>
+          <div class='room-show-detile-icon'>
+            <% if @post.user.image.present? %>
+              <%= link_to '/users/index' do %>
+                <%= image_tag "user_images#{@post.user.image.to_s}", class: 'host-icon' %>
+              <% end %>
+            <% else %>
+              <%= image_tag "user_images/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpeg", class: 'icon-image host-icon'%>
+            <% end %>
+          </div>
+          <div class='room-show-profile'>
+            <p class="room-show-profile-name"><%= @post.name %></p>
+            <p class="room-show-profile-address"><%= @post.address %></p>
+          </div>
+        </div>
+        <p class="room-show-detile-content"><%= @post.syoukai %></p>
+      </div>
+      <div class='col-md-4'>
+        <div class='room-show-nav'>
+          ¥<%= @post.price %> / 日
+          <div class='room-show-date-select'>
+            <%= form_for [@post, @reservation] do |f| %>
+              <%= f.label :start_date,'開始日' %>
+              <%= f.date_field :start_date, class: 'form-control mb-4' %>
+              <%= f.label :end_date,'終了日' %>
+              <%= f.date_field :end_date, class: 'form-control mb-4' %>
+              <%= f.label :person,'人数' %>
+              <%= f.number_field :person, class: 'form-control mb-4' %>
+              <% if user_signed_in? %>
+              <%= f.submit '予約する', class: 'btn btn-primary form-control' %>
+              <% else %>
+              <%= f.submit 'ログイン', class: 'btn btn-primary form-control' %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+<div class="container reservations-new">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="reservations-new-nav">
+        <h4 class="reservations-new-check-content">予約内容確認</h4>
+        <%= form_for [@post,@reservation] do |f| %>
+        <h5 class="price-icon">¥<%= @reservation.post.price %>/日</h5>
+        <div class="reservations-new-date-select">
+          <%= f.label :start_date, '開始日' %>
+          <search class="form-control mb-4" readonly="readonly"><%= @reservation.start_date%></search>
+          <%= f.label :end_date, '終了日' %>
+          <search class="form-control mb-4" readonly="readonly"><%= @reservation.end_date %></search>
+          <h6 class="reservations-new-check-content">使用日数:<%= (@reservation.end_date - @reservation.start_date).to_int %>日</h6>
+          <h6 class="reservations-new-check-content">人数:<%= @reservation.person %>人</h6>
+          <%= f.label '合計金額' %>
+          <search class="form-control mb-4" readonly="readonly"><%= ((@reservation.end_date - @reservation.start_date)*@reservation.person*@reservation.post.price).to_int %></search>
+          <p class="reservations-new-check-content">上記の内容でよろしければ「予約を確定」を押してください</p>
+          <%= f.submit '予約を確定', class: 'btn btn-primary form-control my-3' %>
+          <%= link_to 'ルーム詳細に戻る', "/reservations/#{@reservation.post.id}/rooms", class: 'btn btn-secondary form-control' %>
+          <%= f.hidden_field :start_date%>
+          <%= f.hidden_field :end_date %>
+          <%= f.hidden_field :person %>
+          <%= f.hidden_field :confirming %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

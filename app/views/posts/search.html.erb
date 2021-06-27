@@ -1,0 +1,23 @@
+<div class="container-fiuld room du">
+  <h4 class="pd-4">検索結果：<%= @posts.count %>件</h4>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <div class="room-frams-inner">
+          <%= link_to("/reservations/#{post.id}/rooms") do %>
+            <div class="room-image-out">
+              <% if post.image.present? %>
+                <%= image_tag "user_images#{post.image.to_s}", class: 'room-image' %>
+              <% end %>
+            </div>
+            <div class="room-profile">
+              <p class="room-profile-name"><%= post.name %></p>
+              <p class="room-profile-city"><%= post.address %></p>
+              <p class="room-profile-price price-icon">¥<%= post.price %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

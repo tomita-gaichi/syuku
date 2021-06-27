@@ -1,0 +1,72 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*index*/
+.top .top-main {
+  background-image: url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+}
+
+.top .form-fream {
+  height: 650px;
+  display: flex;
+  align-items: center;
+}
+
+.top .form-area {
+  background: #fff;
+  padding: 24px;
+  border-radius: 5px;
+}
+
+.top .form-area-title {
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 1px;
+}
+
+.m-5 {
+  margin: 3rem!important;
+}
+
+.top .section-title {
+  font-size: 24px;
+  margin: 35px 0;
+  font-weight: bold;
+}
+
+.top span {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1;
+  margin: auto;
+  text-align: center;
+  font-size: 24px;
+}
+
+.shadow {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.top .panel-image {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 992px){
+.col-lg-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+}
