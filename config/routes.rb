@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  
-
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   
   devise_scope :user do
@@ -10,7 +8,6 @@ Rails.application.routes.draw do
     get '/users/edit' => 'devise/registrations#edit'
     get 'account' => 'devise/registrations#account'
     get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'
-   
   end
   
   get 'users/index'
@@ -23,16 +20,15 @@ Rails.application.routes.draw do
   get 'reservations/reshow'
   get 'reservations/new'
   resources :users
-  
+
   resources :posts do
-    
     resources :reservations do
       collection do
         post :confirm
       end
     end
   end
-  
+
   root to: "users#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

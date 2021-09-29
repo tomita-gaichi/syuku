@@ -5,8 +5,4 @@ class UsersController < ApplicationController
     @users = User.all
     @posts = Post.all
   end
-
-  def show
-  end
-
 end

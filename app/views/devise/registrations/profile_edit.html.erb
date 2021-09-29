@@ -35,20 +35,20 @@
         </div>
         <div class="update-content">
           <div class="row">
-          <%= f.label :image, "アイコン画像", class: 'col-md-3 required-a' %>
-          <%= f.file_field :image, class: 'md-4 col-md-9' %>
+            <%= f.label :image, "アイコン画像", class: 'col-md-3 required-a' %>
+            <%= f.file_field :image, class: 'md-4 col-md-9' %>
           </div>
         </div>
         <div class="update-content">
           <div class="row">
-          <%= f.label :name, "名前", class: 'col-md-3 required-a' %>
-          <%= f.text_field :name, autofocus: true, class: 'form-control md-4 col-md-9', placeholder: '名前を入力', value: current_user.name%>
+            <%= f.label :name, "名前", class: 'col-md-3 required-a' %>
+            <%= f.text_field :name, autofocus: true, class: 'form-control md-4 col-md-9', placeholder: '名前を入力', value: current_user.name%>
           </div>
         </div>
         <div class="update-content">
           <div class="row">
-          <%= f.label :name, "自己紹介", class: 'col-md-3 required-a' %>
-          <%= f.text_area :introduction, autofocus: true, class: 'form-control md-4 col-md-9', placeholder: '自己紹介を入力', value: current_user.introduction%>
+            <%= f.label :name, "自己紹介", class: 'col-md-3 required-a' %>
+            <%= f.text_area :introduction, autofocus: true, class: 'form-control md-4 col-md-9', placeholder: '自己紹介を入力', value: current_user.introduction%>
           </div>
         </div>
         <div class="update-content">

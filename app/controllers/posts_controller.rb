@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, :except=>[:search]
 
-  def index
-  end
-
   def new
     @post = Post.new
   end
@@ -50,7 +47,6 @@ class PostsController < ApplicationController
    def post_params
      params.require(:post).permit(:name, :syoukai, :price, :address, :image)
    end
-
 end
 
 

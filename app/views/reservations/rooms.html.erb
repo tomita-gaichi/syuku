@@ -46,32 +46,33 @@
     </div>
   </div>
 <% else %>
-<div class="container reservations-new">
-  <div class="row">
-    <div class="col-6 offset-3">
-      <div class="reservations-new-nav">
-        <h4 class="reservations-new-check-content">予約内容確認</h4>
-        <%= form_for [@post,@reservation] do |f| %>
-        <h5 class="price-icon">¥<%= @reservation.post.price %>/日</h5>
-        <div class="reservations-new-date-select">
-          <%= f.label :start_date, '開始日' %>
-          <search class="form-control mb-4" readonly="readonly"><%= @reservation.start_date%></search>
-          <%= f.label :end_date, '終了日' %>
-          <search class="form-control mb-4" readonly="readonly"><%= @reservation.end_date %></search>
-          <h6 class="reservations-new-check-content">使用日数:<%= (@reservation.end_date - @reservation.start_date).to_int %>日</h6>
-          <h6 class="reservations-new-check-content">人数:<%= @reservation.person %>人</h6>
-          <%= f.label '合計金額' %>
-          <search class="form-control mb-4" readonly="readonly"><%= ((@reservation.end_date - @reservation.start_date)*@reservation.person*@reservation.post.price).to_int %></search>
-          <p class="reservations-new-check-content">上記の内容でよろしければ「予約を確定」を押してください</p>
-          <%= f.submit '予約を確定', class: 'btn btn-primary form-control my-3' %>
-          <%= link_to 'ルーム詳細に戻る', "/reservations/#{@reservation.post.id}/rooms", class: 'btn btn-secondary form-control' %>
-          <%= f.hidden_field :start_date%>
-          <%= f.hidden_field :end_date %>
-          <%= f.hidden_field :person %>
-          <%= f.hidden_field :confirming %>
-        <% end %>
+  <div class="container reservations-new">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="reservations-new-nav">
+          <h4 class="reservations-new-check-content">予約内容確認</h4>
+          <%= form_for [@post,@reservation] do |f| %>
+            <h5 class="price-icon">¥<%= @reservation.post.price %>/日</h5>
+            <div class="reservations-new-date-select">
+              <%= f.label :start_date, '開始日' %>
+              <search class="form-control mb-4" readonly="readonly"><%= @reservation.start_date%></search>
+              <%= f.label :end_date, '終了日' %>
+              <search class="form-control mb-4" readonly="readonly"><%= @reservation.end_date %></search>
+              <h6 class="reservations-new-check-content">使用日数:<%= (@reservation.end_date - @reservation.start_date).to_int %>日</h6>
+              <h6 class="reservations-new-check-content">人数:<%= @reservation.person %>人</h6>
+              <%= f.label '合計金額' %>
+              <search class="form-control mb-4" readonly="readonly"><%= ((@reservation.end_date - @reservation.start_date)*@reservation.person*@reservation.post.price).to_int %></search>
+              <p class="reservations-new-check-content">上記の内容でよろしければ「予約を確定」を押してください</p>
+              <%= f.submit '予約を確定', class: 'btn btn-primary form-control my-3' %>
+              <%= link_to 'ルーム詳細に戻る', "/reservations/#{@reservation.post.id}/rooms", class: 'btn btn-secondary form-control' %>
+              <%= f.hidden_field :start_date%>
+              <%= f.hidden_field :end_date %>
+              <%= f.hidden_field :person %>
+              <%= f.hidden_field :confirming %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <% end %>

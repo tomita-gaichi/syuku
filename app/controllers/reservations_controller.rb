@@ -1,9 +1,5 @@
 class ReservationsController < ApplicationController
-
   before_action :authenticate_user!, except: [:rooms]
-
-  def index
-  end
 
   def new
     @post = Post.find(params[:id])
@@ -40,5 +36,4 @@ class ReservationsController < ApplicationController
     def reservation_params
       params.require(:reservation).permit(:start_date, :end_date, :person, :confirming)
     end
-
 end
